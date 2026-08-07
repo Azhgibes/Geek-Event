@@ -24,21 +24,41 @@ export default function Header() {
         </div>
 
         <nav className="hidden gap-8 lg:flex">
-          <Link
+         <Link
+           href="/"
+           className="text-zinc-300 transition hover:text-white"
+         >
+           Главная
+         </Link>
+
+         <Link
            href="/events"
            className="text-zinc-300 transition hover:text-white"
-          >
+         >
            Мероприятия
-          </Link>
+         </Link>
 
-          <a className="text-zinc-300 hover:text-white" href="#">
-            Новости
-          </a>
+         <Link
+           href="/news"
+           className="text-zinc-300 transition hover:text-white"
+         >
+           Новости
+         </Link>
 
-          <a className="text-zinc-300 hover:text-white" href="#">
-            Организаторам
-          </a>
-        </nav>
+         <Link
+           href="/organizers"
+           className="text-zinc-300 transition hover:text-white"
+         >
+           Организаторам
+         </Link>
+
+         <Link
+           href="/about"
+           className="text-zinc-300 transition hover:text-white"
+         >
+           О проекте
+         </Link>
+       </nav>
 
         <div className="flex items-center gap-3">
 
