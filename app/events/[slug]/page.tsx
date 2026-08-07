@@ -35,11 +35,11 @@ export default async function EventPage({ params }: EventPageProps) {
 
       <EventLayout>
         <EventAbout
-          description={event.description}
-          city={event.city}
-          date={event.date}
-          participants={event.participants}
-          nominations={event.nominations}
+         description={event.description ?? ""}
+         city={event.city}
+         date={event.date}
+         participants={event.participants ?? 0}
+         nominations={event.nominations ?? 0}
         />
       </EventLayout>
     </main>

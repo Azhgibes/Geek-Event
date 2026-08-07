@@ -1,86 +1,104 @@
+"use client";
+
 import Link from "next/link";
-import { Search, User, CalendarDays } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  Search,
+  Heart,
+  Bell,
+  User,
+  Menu,
+} from "lucide-react";
+
+import GradientButton from "@/components/design/GradientButton";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-zinc-950/80 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#090A15]/80 backdrop-blur-xl">
 
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-600 font-bold">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+
+        {/* Logo */}
+
+        <Link href="/" className="flex items-center gap-3">
+
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 text-2xl font-black text-white shadow-lg shadow-violet-500/30">
             G
           </div>
 
           <div>
-            <div className="font-bold text-white">
-              Geek Event
+
+            <div className="text-2xl font-black tracking-wide text-white">
+              GEEK
             </div>
 
-            <div className="text-xs text-zinc-400">
-              Geek Event Platform
+            <div className="-mt-1 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-sm font-bold text-transparent">
+              EVENT
             </div>
+
           </div>
-        </div>
 
-        <nav className="hidden gap-8 lg:flex">
-         <Link
-           href="/"
-           className="text-zinc-300 transition hover:text-white"
-         >
-           Главная
-         </Link>
+        </Link>
 
-         <Link
-           href="/events"
-           className="text-zinc-300 transition hover:text-white"
-         >
-           Мероприятия
-         </Link>
+        {/* Navigation */}
 
-         <Link
-           href="/news"
-           className="text-zinc-300 transition hover:text-white"
-         >
-           Новости
-         </Link>
+        <nav className="hidden gap-10 lg:flex">
 
-         <Link
-           href="/organizers"
-           className="text-zinc-300 transition hover:text-white"
-         >
-           Организаторам
-         </Link>
-
-         <Link
-           href="/about"
-           className="text-zinc-300 transition hover:text-white"
-         >
-           О проекте
-         </Link>
-       </nav>
-
-        <div className="flex items-center gap-3">
-
-          <Button variant="outline" size="icon">
-            <Search size={18}/>
-          </Button>
-
-          <Link href="/login">
-           <Button variant="outline">
-             <User size={18} />
-             Войти
-           </Button>
+          <Link href="/events" className="text-zinc-300 transition hover:text-white">
+            Мероприятия
           </Link>
 
-          <Button>
-            <CalendarDays size={18}/>
-            Создать мероприятие
-          </Button>
+          <Link href="/organizers" className="text-zinc-300 transition hover:text-white">
+            Организаторам
+          </Link>
+
+          <Link href="/news" className="text-zinc-300 transition hover:text-white">
+            Новости
+          </Link>
+
+          <Link href="/about" className="text-zinc-300 transition hover:text-white">
+            О проекте
+          </Link>
+
+          <Link href="/contacts" className="text-zinc-300 transition hover:text-white">
+            Контакты
+          </Link>
+
+        </nav>
+
+        {/* Right */}
+
+        <div className="flex items-center gap-4">
+
+          <button className="text-zinc-400 hover:text-white">
+            <Search size={21} />
+          </button>
+
+          <button className="text-zinc-400 hover:text-pink-400">
+            <Heart size={21} />
+          </button>
+
+          <button className="text-zinc-400 hover:text-violet-400">
+            <Bell size={21} />
+          </button>
+
+          <button className="text-zinc-400 hover:text-white">
+            <User size={21} />
+          </button>
+
+         <Link href="/register">
+            <GradientButton>
+             Регистрация
+            </GradientButton>
+         </Link>
+
+          <button className="lg:hidden text-white">
+            <Menu />
+          </button>
 
         </div>
 
       </div>
+
     </header>
   );
 }

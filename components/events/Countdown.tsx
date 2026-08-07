@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from "react";
 
-interface CountdownProps {
+interface CountdownProps 
+{
   targetDate: string;
-}
+ }
+ export default function Countdown({ targetDate }: CountdownProps) 
+  {
+ const [days, setDays] = useState(0);
 
-export default function Countdown({ targetDate }: CountdownProps) {
-  const [days, setDays] = useState(0);
-
-  useEffect(() => {
-    const update = () => {
+  useEffect(() => 
+     {
+      const update = () => {
       const target = new Date(targetDate + "T00:00:00").getTime();
       const now = new Date().getTime();
-
       const difference = target - now;
 
       if (difference <= 0) {
