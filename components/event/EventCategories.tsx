@@ -1,18 +1,21 @@
+import Link from "next/link";
 import { Trophy } from "lucide-react";
 
 import { EventNomination } from "@/types/event";
 
 interface EventCategoriesProps {
   nominations: EventNomination[];
+  slug: string;
 }
 
 export default function EventCategories({
   nominations,
+  slug,
 }: EventCategoriesProps) {
   return (
     <section
       id="nominations"
-      className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16"
+      className="mx-auto max-w-7xl scroll-mt-24 px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16"
     >
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-white sm:text-4xl">
@@ -64,7 +67,7 @@ export default function EventCategories({
                 </p>
               )}
 
-              <div className="mt-5 flex items-center justify-between">
+              <div className="mt-5 flex items-center justify-between gap-3">
                 <span className="rounded-full bg-violet-600/20 px-3 py-1 text-xs font-medium text-violet-300">
                   {nomination.type}
                 </span>
@@ -79,6 +82,16 @@ export default function EventCategories({
                   </span>
                 )}
               </div>
+
+              {nomination.registration && (
+                <Link
+                  href={`/events/${slug}/register?nomination=${nomination.id}`}
+                  className="mt-5 block w-full rounded-xl bg-violet-600 px-4 py-3 text-center font-semibold text-white transition hover:bg-violet-500"
+                >
+                  Подать заявку
+                </Link>
+              )}
+
             </div>
           ))}
         </div>

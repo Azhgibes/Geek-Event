@@ -1,15 +1,15 @@
 export interface EventNomination {
   id: string;
   title: string;
+  description: string;
   type: string;
-  description?: string;
   registration: boolean;
 }
 
 export interface Event {
   slug: string;
-  title: string;
 
+  title: string;
   shortDescription?: string;
   heroText?: string;
 
@@ -30,6 +30,7 @@ export interface Event {
   categories: string[];
 
   participants: number;
+
   rating: number;
 
   registration: boolean;
@@ -38,5 +39,3 @@ export interface Event {
 
   nominations: EventNomination[];
 }
-
-

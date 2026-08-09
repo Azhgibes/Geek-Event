@@ -3,6 +3,7 @@ import { Event } from "@/types/event";
 export const events: Event[] = [
   {
     slug: "dvizh-fest-5",
+
     title: "DVIZH-FEST 5",
 
     shortDescription:
@@ -12,226 +13,458 @@ export const events: Event[] = [
       "Cosplay • K-POP • Anime • Games • Comics • Geek Show",
 
     city: "Омск",
+
     venue: "ДК им. Малунцева",
-    address: "г. Омск, проспект Мира, 58",
-    organizer: "DVIZH Team",
 
-    status: "registration",
+    address:
+      "г. Омск, проспект Мира, 58",
 
-    date: "8 ноября 2026",
-    dateISO: "2026-11-08",
+    organizer:
+      "Azhgibes Production",
 
-    image: "/posters/dvizhfest5.jpg",
+    status:
+      "registration",
 
-    featured: true,
+    date:
+      "8 ноября 2026",
+
+    dateISO:
+      "2026-11-08",
+
+    image:
+      "/posters/dvizhfest5.jpg",
+
+    featured:
+      true,
 
     categories: [
       "Cosplay",
       "K-POP",
       "Anime",
-      "Games",
       "Geek",
     ],
 
-    participants: 342,
-    rating: 4.9,
+    participants:
+      342,
 
-    registration: true,
+    rating:
+      4.9,
+
+    registration:
+      true,
 
     description:
-      "DVIZH-FEST 5 — большой фестиваль гик-культуры Омска. Косплей, K-POP, конкурсная программа, лекции, игры, маркет и специальные активности для участников и гостей.",
+      "DVIZH-FEST — крупнейший фестиваль гик-культуры Омска с косплеем, K-POP, конкурсной программой, лекциями, играми и маркетом.",
 
     nominations: [
       {
-        id: "cosplay-west",
-        title: "Одиночное дефиле — запад",
-        type: "cosplay",
+        id: "defile-west",
+
+        title:
+          "Одиночное дефиле — запад",
+
         description:
-          "Одиночное дефиле по западным вселенным.",
-        registration: true,
+          "Одиночное косплей-дефиле по западным фандомам.",
+
+        type:
+          "Cosplay",
+
+        registration:
+          true,
       },
 
       {
-        id: "cosplay-east",
-        title: "Одиночное дефиле — восток",
-        type: "cosplay",
+        id: "defile-east",
+
+        title:
+          "Одиночное дефиле — восток",
+
         description:
-          "Одиночное дефиле по восточным вселенным.",
-        registration: true,
+          "Одиночное косплей-дефиле по аниме, манге и восточным фандомам.",
+
+        type:
+          "Cosplay",
+
+        registration:
+          true,
       },
 
       {
-        id: "cosplay-team",
-        title: "Командное дефиле",
-        type: "cosplay",
+        id: "team-defile",
+
+        title:
+          "Командное дефиле",
+
         description:
-          "Командное дефиле для участников в составе группы.",
-        registration: true,
+          "Косплей-дефиле для команд.",
+
+        type:
+          "Cosplay",
+
+        registration:
+          true,
       },
 
       {
         id: "geek-show",
-        title: "Гик-шоу",
-        type: "show",
+
+        title:
+          "Гик-шоу",
+
         description:
-          "Творческие номера и выступления на гик-тематику.",
-        registration: true,
+          "Яркие творческие номера и выступления.",
+
+        type:
+          "Show",
+
+        registration:
+          true,
       },
 
       {
         id: "stage-cosplay",
-        title: "Сценический косплей",
-        type: "cosplay",
+
+        title:
+          "Сценический косплей",
+
         description:
-          "Сценические косплей-постановки.",
-        registration: true,
+          "Полноценные сценические косплей-постановки.",
+
+        type:
+          "Cosplay",
+
+        registration:
+          true,
       },
 
       {
         id: "kpop-solo",
-        title: "K-POP SOLO",
-        type: "kpop",
+
+        title:
+          "K-POP SOLO",
+
         description:
-          "Сольное выступление в направлении K-POP.",
-        registration: true,
+          "Сольное K-POP выступление.",
+
+        type:
+          "K-POP",
+
+        registration:
+          true,
       },
 
       {
         id: "kpop-crew",
-        title: "K-POP CREW",
-        type: "kpop",
+
+        title:
+          "K-POP CREW",
+
         description:
-          "Командное выступление в направлении K-POP.",
-        registration: true,
+          "Выступление K-POP команды.",
+
+        type:
+          "K-POP",
+
+        registration:
+          true,
       },
 
       {
         id: "kpop-team",
-        title: "K-POP TEAM",
-        type: "kpop",
+
+        title:
+          "K-POP TEAM",
+
         description:
-          "Командный конкурс K-POP.",
-        registration: true,
+          "Командный K-POP конкурс.",
+
+        type:
+          "K-POP",
+
+        registration:
+          true,
       },
 
       {
         id: "stands",
-        title: "Конкурс стендов",
-        type: "custom",
+
+        title:
+          "Конкурс стендов",
+
         description:
-          "Конкурс тематических стендов участников фестиваля.",
-        registration: true,
+          "Участие с тематическим стендом на фестивале.",
+
+        type:
+          "Geek",
+
+        registration:
+          true,
       },
 
       {
-        id: "saber-fighting",
-        title: "Саберфайтинг",
-        type: "custom",
+        id: "saber-fight",
+
+        title:
+          "Саберфайтинг",
+
         description:
-          "Соревнование по саберфайтингу.",
-        registration: true,
+          "Соревнования по световым мечам.",
+
+        type:
+          "Sport",
+
+        registration:
+          true,
       },
 
       {
         id: "geek-vocal",
-        title: "Гик-вокал",
-        type: "vocal",
+
+        title:
+          "Гик-вокал",
+
         description:
-          "Вокальный конкурс на гик-тематику.",
-        registration: true,
+          "Вокальный конкурс для представителей гик-культуры.",
+
+        type:
+          "Music",
+
+        registration:
+          true,
       },
 
       {
         id: "dvizh-dance",
-        title: "DVIZH-DANCE",
-        type: "dance",
+
+        title:
+          "DVIZH-DANCE",
+
         description:
-          "Танцевальный конкурс фестиваля.",
-        registration: true,
+          "Танцевальный конкурс.",
+
+        type:
+          "Dance",
+
+        registration:
+          true,
       },
     ],
   },
 
   {
     slug: "anicon-siberia",
-    title: "AniCon Siberia",
 
-    city: "Новосибирск",
+    title:
+      "AniCon Siberia",
 
-    date: "15 ноября 2026",
-    dateISO: "2026-11-15",
+    city:
+      "Новосибирск",
 
-    image: "/posters/anicon.jpg",
+    date:
+      "15 ноября 2026",
 
-    featured: true,
+    dateISO:
+      "2026-11-15",
 
-    categories: ["Anime"],
+    image:
+      "/posters/anicon.jpg",
 
-    participants: 234,
-    rating: 4.8,
+    featured:
+      true,
 
-    registration: true,
+    categories: [
+      "Anime",
+    ],
+
+    participants:
+      234,
+
+    rating:
+      4.8,
+
+    registration:
+      true,
 
     description:
       "AniCon Siberia — фестиваль аниме, манги и японской культуры.",
 
-    nominations: [],
+    nominations: [
+      {
+        id: "anicon-cosplay",
+
+        title:
+          "Косплей",
+
+        description:
+          "Косплей-конкурс AniCon Siberia.",
+
+        type:
+          "Cosplay",
+
+        registration:
+          true,
+      },
+
+      {
+        id: "anicon-stage",
+
+        title:
+          "Сценическое выступление",
+
+        description:
+          "Творческие сценические выступления.",
+
+        type:
+          "Show",
+
+        registration:
+          true,
+      },
+    ],
   },
 
   {
     slug: "hinode",
-    title: "Hinode",
 
-    city: "Москва",
+    title:
+      "Hinode",
 
-    date: "28 ноября 2026",
-    dateISO: "2026-11-28",
+    city:
+      "Москва",
 
-    image: "/posters/hinode.jpg",
+    date:
+      "28 ноября 2026",
 
-    featured: true,
+    dateISO:
+      "2026-11-28",
+
+    image:
+      "/posters/hinode.jpg",
+
+    featured:
+      true,
 
     categories: [
       "Japan",
       "Cosplay",
     ],
 
-    participants: 156,
-    rating: 3.9,
+    participants:
+      156,
 
-    registration: true,
+    rating:
+      3.9,
+
+    registration:
+      true,
 
     description:
+      "Один из крупнейших фестивалей японской культуры России.",
 
+    nominations: [
+      {
+        id: "hinode-cosplay",
 
-"Один из крупнейших фестивалей японской культуры России.",
+        title:
+          "Cosplay",
 
-    nominations: [],
+        description:
+          "Косплей-конкурс фестиваля Hinode.",
+
+        type:
+          "Cosplay",
+
+        registration:
+          true,
+      },
+
+      {
+        id: "hinode-dance",
+
+        title:
+          "Dance",
+
+        description:
+          "Танцевальный конкурс.",
+
+        type:
+          "Dance",
+
+        registration:
+          true,
+      },
+    ],
   },
 
   {
     slug: "k-pop-fest",
-    title: "K-POP FEST",
 
-    city: "Тюмень",
+    title:
+      "K-POP FEST",
 
-    date: "5 декабря 2026",
-    dateISO: "2026-12-05",
+    city:
+      "Тюмень",
 
-    image: "/posters/kpopfest.jpg",
+    date:
+      "5 декабря 2026",
 
-    featured: true,
+    dateISO:
+      "2026-12-05",
 
-    categories: ["K-POP"],
+    image:
+      "/posters/kpopfest.jpg",
 
-    participants: 198,
-    rating: 4.7,
+    featured:
+      true,
 
-    registration: true,
+    categories: [
+      "K-POP",
+    ],
+
+    participants:
+      198,
+
+    rating:
+      4.7,
+
+    registration:
+      true,
 
     description:
       "Фестиваль современной корейской культуры.",
 
-    nominations: [],
+    nominations: [
+      {
+        id: "kpop-solo",
+
+        title:
+          "K-POP SOLO",
+
+        description:
+          "Сольное K-POP выступление.",
+
+        type:
+          "K-POP",
+
+        registration:
+          true,
+      },
+
+      {
+        id: "kpop-team",
+
+        title:
+          "K-POP TEAM",
+
+        description:
+          "Командное K-POP выступление.",
+
+        type:
+          "K-POP",
+
+        registration:
+          true,
+      },
+    ],
   },
 ];

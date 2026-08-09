@@ -264,11 +264,13 @@ export default function OrganizerDashboard() {
               description="Название, описание, дата, место проведения."
             />
 
-            <DashboardCard
-              icon={<Trophy size={24} />}
-              title="Номинации"
-              description="Создавайте и настраивайте номинации фестиваля."
-            />
+            <Link href="/dashboard/nominations">
+              <DashboardCard
+               icon={<Trophy size={24} />}
+               title="Номинации"
+               description="Создавайте и настраивайте номинации фестиваля."
+              />
+            </Link>
 
             <DashboardCard
               icon={<FileText size={24} />}
