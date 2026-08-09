@@ -1,6 +1,15 @@
+export interface EventNomination {
+  id: string;
+  title: string;
+  type: string;
+  description?: string;
+  registration: boolean;
+}
+
 export interface Event {
   slug: string;
   title: string;
+
   shortDescription?: string;
   heroText?: string;
 
@@ -21,15 +30,13 @@ export interface Event {
   categories: string[];
 
   participants: number;
-
   rating: number;
 
   registration: boolean;
 
   description?: string;
 
-  nominations?: number;
+  nominations: EventNomination[];
 }
-
 
 

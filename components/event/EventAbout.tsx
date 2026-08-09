@@ -5,12 +5,14 @@ import {
   Trophy,
 } from "lucide-react";
 
+import { EventNomination } from "@/types/event";
+
 interface EventAboutProps {
   description: string;
   city: string;
   date: string;
   participants: number;
-  nominations: number;
+  nominations: EventNomination[];
 }
 
 export default function EventAbout({
@@ -25,10 +27,8 @@ export default function EventAbout({
       id="about"
       className="mx-auto max-w-7xl scroll-mt-24 px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16"
     >
-
       {/* Заголовок и описание */}
       <div className="mb-8 sm:mb-10">
-
         <h2 className="text-3xl font-bold text-white sm:text-4xl">
           О фестивале
         </h2>
@@ -36,7 +36,6 @@ export default function EventAbout({
         <p className="mt-4 max-w-4xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
           {description}
         </p>
-
       </div>
 
       {/* Информация */}
@@ -44,7 +43,6 @@ export default function EventAbout({
 
         {/* Город */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
-
           <MapPin
             size={22}
             className="mb-4 text-violet-400"
@@ -57,12 +55,10 @@ export default function EventAbout({
           <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {city}
           </h3>
-
         </div>
 
         {/* Дата */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
-
           <CalendarDays
             size={22}
             className="mb-4 text-violet-400"
@@ -75,12 +71,10 @@ export default function EventAbout({
           <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {date}
           </h3>
-
         </div>
 
         {/* Участники */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
-
           <Users
             size={22}
             className="mb-4 text-violet-400"
@@ -93,12 +87,10 @@ export default function EventAbout({
           <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {participants}
           </h3>
-
         </div>
 
         {/* Номинации */}
         <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
-
           <Trophy
             size={22}
             className="mb-4 text-violet-400"
@@ -109,15 +101,11 @@ export default function EventAbout({
           </p>
 
           <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
-            {nominations}
+            {nominations.length}
           </h3>
-
         </div>
 
       </div>
-
     </section>
   );
 }
-
-

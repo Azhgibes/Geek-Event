@@ -5,6 +5,7 @@ import { events } from "@/data/events";
 import EventHero from "@/components/event/EventHero";
 import EventLayout from "@/components/event/EventLayout";
 import EventAbout from "@/components/event/EventAbout";
+import EventCategories from "@/components/event/EventCategories";
 
 interface EventPageProps {
   params: Promise<{
@@ -23,6 +24,8 @@ export default async function EventPage({ params }: EventPageProps) {
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
+
+      {/* Hero */}
       <EventHero
         title={event.title}
         city={event.city}
@@ -33,15 +36,25 @@ export default async function EventPage({ params }: EventPageProps) {
         registration={event.registration}
       />
 
+      {/* Навигация и контент */}
       <EventLayout>
+
+        {/* О фестивале */}
         <EventAbout
-         description={event.description ?? ""}
-         city={event.city}
-         date={event.date}
-         participants={event.participants ?? 0}
-         nominations={event.nominations ?? 0}
+          description={event.description ?? ""}
+          city={event.city}
+          date={event.date}
+          participants={event.participants}
+          nominations={event.nominations}
         />
+
+        {/* Номинации */}
+        <EventCategories
+          nominations={event.nominations}
+        />
+
       </EventLayout>
+
     </main>
   );
 }
