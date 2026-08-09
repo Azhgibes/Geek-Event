@@ -1,7 +1,9 @@
-import EventNavigation from "@/components/event/EventNavigation";
-
-
-import { CalendarDays, MapPin, Users, Trophy } from "lucide-react";
+import {
+  CalendarDays,
+  MapPin,
+  Users,
+  Trophy,
+} from "lucide-react";
 
 interface EventAboutProps {
   description: string;
@@ -21,53 +23,101 @@ export default function EventAbout({
   return (
     <section
       id="about"
-      className="mx-auto max-w-7xl px-6 py-16 scroll-mt-24"
+      className="mx-auto max-w-7xl scroll-mt-24 px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16"
     >
-      <div className="mb-10">
-        <h2 className="text-4xl font-bold text-white">
+
+      {/* Заголовок и описание */}
+      <div className="mb-8 sm:mb-10">
+
+        <h2 className="text-3xl font-bold text-white sm:text-4xl">
           О фестивале
         </h2>
 
-        <p className="mt-4 max-w-4xl text-lg leading-8 text-zinc-400">
+        <p className="mt-4 max-w-4xl text-base leading-7 text-zinc-400 sm:text-lg sm:leading-8">
           {description}
         </p>
+
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+      {/* Информация */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-4">
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <MapPin className="mb-4 text-violet-400" />
-          <p className="text-sm text-zinc-500">Город</p>
-          <h3 className="mt-2 text-xl font-semibold text-white">
+        {/* Город */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
+
+          <MapPin
+            size={22}
+            className="mb-4 text-violet-400"
+          />
+
+          <p className="text-sm text-zinc-500">
+            Город
+          </p>
+
+          <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {city}
           </h3>
+
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <CalendarDays className="mb-4 text-violet-400" />
-          <p className="text-sm text-zinc-500">Дата</p>
-          <h3 className="mt-2 text-xl font-semibold text-white">
+        {/* Дата */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
+
+          <CalendarDays
+            size={22}
+            className="mb-4 text-violet-400"
+          />
+
+          <p className="text-sm text-zinc-500">
+            Дата
+          </p>
+
+          <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {date}
           </h3>
+
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <Users className="mb-4 text-violet-400" />
-          <p className="text-sm text-zinc-500">Участников</p>
-          <h3 className="mt-2 text-xl font-semibold text-white">
+        {/* Участники */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
+
+          <Users
+            size={22}
+            className="mb-4 text-violet-400"
+          />
+
+          <p className="text-sm text-zinc-500">
+            Участников
+          </p>
+
+          <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {participants}
           </h3>
+
         </div>
 
-        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
-          <Trophy className="mb-4 text-violet-400" />
-          <p className="text-sm text-zinc-500">Номинаций</p>
-          <h3 className="mt-2 text-xl font-semibold text-white">
+        {/* Номинации */}
+        <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
+
+          <Trophy
+            size={22}
+            className="mb-4 text-violet-400"
+          />
+
+          <p className="text-sm text-zinc-500">
+            Номинаций
+          </p>
+
+          <h3 className="mt-2 text-lg font-semibold text-white sm:text-xl">
             {nominations}
           </h3>
+
         </div>
 
       </div>
+
     </section>
   );
 }
+
+
