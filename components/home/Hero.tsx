@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -31,11 +32,7 @@ export default function Hero() {
           </span>
 
           <h1 className="mt-5 text-[2.7rem] font-black leading-[1.02] tracking-tight text-white sm:mt-7 sm:text-5xl lg:mt-8 lg:text-6xl">
-
-            Главная платформа
-            <br />
-
-
+            Главная платформа{" "}
 
             <span className="bg-gradient-to-r from-fuchsia-500 to-cyan-400 bg-clip-text text-transparent">
               гик-событий
@@ -44,7 +41,6 @@ export default function Hero() {
             <span className="bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">
               России
             </span>
-
           </h1>
 
           <p className="mt-5 max-w-[520px] text-base leading-7 text-zinc-300 sm:mt-7 sm:text-lg sm:leading-8">
@@ -53,17 +49,37 @@ export default function Hero() {
             современную гик-культуру.
           </p>
 
-          {/* Поиск */}
-          <div className="mt-7 flex w-full flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+          {/* Поиск и создание мероприятия */}
+          <div className="mt-7 flex w-full flex-col gap-3 sm:mt-9">
 
-            <input
-              placeholder="Найти мероприятие..."
-              className="h-13 min-w-0 flex-1 rounded-xl border border-zinc-700 bg-zinc-900/85 px-5 text-base text-white outline-none transition placeholder:text-zinc-500 focus:border-violet-500"
-            />
+            {/* Верхняя строка: поиск + Найти */}
+            <div className="flex w-full flex-col gap-3 sm:flex-row sm:gap-4">
 
-            <button className="h-13 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 px-8 font-semibold text-white transition hover:scale-105">
-              Найти
-            </button>
+              <input
+                placeholder="Найти мероприятие..."
+                className="h-13 min-w-0 flex-1 rounded-xl border border-zinc-700 bg-zinc-900/85 px-5 text-base text-white outline-none transition placeholder:text-zinc-500 focus:border-violet-500"
+              />
+
+              <button
+                type="button"
+                className="h-13 rounded-xl bg-gradient-to-r from-fuchsia-500 to-violet-600 px-8 font-semibold text-white transition hover:scale-105"
+              >
+                Найти
+              </button>
+
+            </div>
+
+            {/* Создать мероприятие */}
+            <Link
+              href="/create-event"
+              className="group inline-flex h-13 w-full items-center justify-center gap-2 rounded-xl border border-violet-400/40 bg-violet-500/10 px-6 font-semibold text-violet-200 backdrop-blur-sm transition hover:border-violet-400 hover:bg-violet-500/20 hover:text-white sm:w-fit"
+            >
+              <span className="text-lg transition-transform group-hover:rotate-90">
+                +
+              </span>
+
+              Создать мероприятие
+            </Link>
 
           </div>
 

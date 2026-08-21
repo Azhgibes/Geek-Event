@@ -434,37 +434,102 @@ export const events: Event[] = [
       "Фестиваль современной корейской культуры.",
 
     nominations: [
-      {
-        id: "kpop-solo",
+    {
+    id: "defile-west",
+    title: "Одиночное дефиле — запад",
+    description: "Одиночное косплей-дефиле по западным фандомам.",
+    type: "Cosplay",
+    registration: true,
+    },
 
-        title:
-          "K-POP SOLO",
+    {
+    id: "defile-east",
+    title: "Одиночное дефиле — восток",
+    description:
+      "Одиночное косплей-дефиле по аниме, манге и восточным фандомам.",
+    type: "Cosplay",
+    registration: true,
+    },
 
-        description:
-          "Сольное K-POP выступление.",
+    {
+    id: "team-defile",
+    title: "Командное дефиле",
+    description: "Косплей-дефиле для команд.",
+    type: "Cosplay",
+    registration: true,
+    },
 
-        type:
-          "K-POP",
+    {
+    id: "geek-show",
+    title: "Гик-шоу",
+    description: "Яркие творческие номера и выступления.",
+    type: "Geek",
+    registration: true,
+    },
 
-        registration:
-          true,
-      },
+    {
+    id: "stage-cosplay",
+    title: "Сценический косплей",
+    description: "Полноценные сценические косплей-постановки.",
+    type: "Cosplay",
+    registration: true,
+    },
 
-      {
-        id: "kpop-team",
+    {
+    id: "kpop-solo",
+    title: "K-POP SOLO",
+    description: "Сольное K-POP выступление.",
+    type: "K-POP",
+    registration: true,
+    },
 
-        title:
-          "K-POP TEAM",
+    {
+    id: "kpop-crew",
+    title: "K-POP CREW",
+    description: "Выступление K-POP команды.",
+    type: "K-POP",
+    registration: true,
+    },
 
-        description:
-          "Командное K-POP выступление.",
+    {
+    id: "kpop-team",
+    title: "K-POP TEAM",
+    description: "Командное K-POP выступление.",
+    type: "K-POP",
+    registration: true,
+    },
 
-        type:
-          "K-POP",
+    {
+    id: "stands",
+    title: "Конкурс стендов",
+    description: "Участие с тематическим стендом на фестивале.",
+    type: "Geek",
+    registration: true,
+    },
 
-        registration:
-          true,
-      },
-    ],
+    {
+    id: "saber-fight",
+    title: "Саберфайтинг",
+    description: "Соревнования по световым мечам.",
+    type: "Geek",
+    registration: true,
+    },
+
+    {
+    id: "geek-vocal",
+    title: "Гик-вокал",
+    description: "Вокальный конкурс для представителей гик-культуры.",
+    type: "Geek",
+    registration: true,
+    },
+
+    {
+    id: "dvizh-dance",
+    title: "DVIZH-DANCE",
+    description: "Танцевальный конкурс.",
+    type: "Dance",
+    registration: true,
+    },
+   ],
   },
 ];

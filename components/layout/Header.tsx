@@ -1,116 +1,234 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Search,
-  Heart,
-  Bell,
-  User,
-  Menu,
-} from "lucide-react";
+import { useEffect, useState } from "react";
+import { User, LogIn, LogOut, Menu, X } from "lucide-react";
 
-import GradientButton from "@/components/design/GradientButton";
+interface UserData {
+  name: string;
+  surname?: string;
+  email: string;
+  isLoggedIn?: boolean;
+}
 
 export default function Header() {
+  const [user, setUser] = useState<UserData | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+  function loadUser() {
+    const savedUser = localStorage.getItem("geek-event-user");
+
+    if (!savedUser) {
+      setUser(null);
+      return;
+    }
+
+    try {
+      const parsedUser = JSON.parse(savedUser);
+
+      if (parsedUser.isLoggedIn === true) {
+        setUser(parsedUser);
+      } else {
+        setUser(null);
+      }
+    } catch {
+      setUser(null);
+    }
+  }
+
+  function handleLogout() {
+    const savedUser = localStorage.getItem("geek-event-user");
+
+    if (savedUser) {
+      try {
+        const parsedUser = JSON.parse(savedUser);
+
+        parsedUser.isLoggedIn = false;
+
+        localStorage.setItem(
+          "geek-event-user",
+          JSON.stringify(parsedUser)
+        );
+      } catch {
+        localStorage.removeItem("geek-event-user");
+      }
+    }
+
+    // Полностью обновляем сайт,
+    // чтобы Header сразу увидел выход.
+    window.location.href = "/";
+  }
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#090A15]/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-20 md:px-6">
+    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur-xl">
 
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 md:gap-3">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-cyan-500 text-xl font-black text-white shadow-lg shadow-violet-500/30 md:h-12 md:w-12 md:text-2xl">
-            G
-          </div>
+        {/* Логотип */}
 
-          <div>
-            <div className="text-xl font-black tracking-wide text-white md:text-2xl">
-              GEEK
-            </div>
-
-            <div className="-mt-1 bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-xs font-bold text-transparent md:text-sm">
-              EVENT
-            </div>
-          </div>
-
+        <Link
+          href="/"
+          className="text-xl font-black tracking-tight text-white transition hover:text-violet-400"
+        >
+          Geek <span className="text-violet-500">Event</span>
         </Link>
 
-        {/* Desktop navigation */}
+        {/* Навигация */}
 
-        <nav className="hidden gap-10 lg:flex">
+        <nav className="hidden items-center gap-6 md:flex">
 
-          <Link href="/events" className="text-zinc-300 hover:text-white">
+          <Link
+            href="/events"
+            className="text-sm font-medium text-zinc-300 transition hover:text-white"
+          >
             Мероприятия
           </Link>
 
-          <Link href="/organizers" className="text-zinc-300 hover:text-white">
+          <Link
+            href="/organizer"
+            className="text-sm font-medium text-zinc-300 transition hover:text-white"
+          >
             Организаторам
-          </Link>
-
-          <Link href="/news" className="text-zinc-300 hover:text-white">
-            Новости
-          </Link>
-
-          <Link href="/about" className="text-zinc-300 hover:text-white">
-            О проекте
-          </Link>
-
-          <Link href="/contacts" className="text-zinc-300 hover:text-white">
-            Контакты
           </Link>
 
         </nav>
 
-        {/* Right */}
+        {/* Правая часть */}
 
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="hidden items-center gap-3 md:flex">
 
-          {/* Desktop icons */}
+          {user ? (
+            <>
+              {/* Профиль */}
 
-          <button className="hidden md:block text-zinc-400 hover:text-white">
-            <Search size={20} />
-          </button>
+              <Link
+                href="/account"
+                className="flex items-center gap-3 rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2 transition hover:border-violet-500 hover:bg-zinc-800"
+              >
 
-          <button className="hidden md:block text-zinc-400 hover:text-pink-400">
-            <Heart size={20} />
-          </button>
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 text-white">
+                  <User size={17} />
+                </div>
 
-          <button className="hidden md:block text-zinc-400 hover:text-violet-400">
-            <Bell size={20} />
-          </button>
+                <span className="max-w-[150px] truncate text-sm font-semibold text-white">
+                  {user.name}
+                </span>
 
-          <button className="hidden md:block text-zinc-400 hover:text-white">
-            <User size={20} />
-          </button>
+              </Link>
 
-          {/* Desktop button */}
+              {/* Выход */}
 
-          <Link href="/register" className="hidden md:block">
-            <GradientButton>
-              Регистрация
-            </GradientButton>
-          </Link>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-zinc-400 transition hover:bg-zinc-900 hover:text-red-400"
+              >
+                <LogOut size={17} />
+                Выйти
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold text-zinc-300 transition hover:text-white"
+              >
+                <LogIn size={17} />
+                Войти
+              </Link>
 
-          {/* Mobile */}
-
-          <button className="md:hidden text-zinc-300">
-            <Search size={22} />
-          </button>
-
-          <button className="md:hidden text-zinc-300">
-            <User size={22} />
-          </button>
-
-          <button className="md:hidden text-white">
-            <Menu size={28} />
-          </button>
+              <Link
+                href="/register"
+                className="rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+              >
+                Регистрация
+              </Link>
+            </>
+          )}
 
         </div>
 
+        {/* Мобильная кнопка */}
+
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="rounded-lg p-2 text-zinc-300 md:hidden"
+        >
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
       </div>
+
+      {/* Мобильное меню */}
+
+      {mobileOpen && (
+        <div className="border-t border-zinc-800 bg-zinc-950 px-4 py-5 md:hidden">
+
+          <div className="flex flex-col gap-4">
+
+            <Link
+              href="/events"
+              onClick={() => setMobileOpen(false)}
+              className="text-zinc-300"
+            >
+              Мероприятия
+            </Link>
+
+            <Link
+              href="/organizer"
+              onClick={() => setMobileOpen(false)}
+              className="text-zinc-300"
+            >
+              Организаторам
+            </Link>
+
+            {user ? (
+              <>
+                <Link
+                  href="/account"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center gap-2 text-white"
+                >
+                  <User size={18} />
+                  {user.name}
+                </Link>
+
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-2 text-left text-red-400"
+                >
+                  <LogOut size={18} />
+                  Выйти
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  href="/login"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-zinc-300"
+                >
+                  Войти
+                </Link>
+
+                <Link
+                  href="/register"
+                  onClick={() => setMobileOpen(false)}
+                  className="text-violet-400"
+                >
+                  Регистрация
+                </Link>
+              </>
+            )}
+
+          </div>
+
+        </div>
+      )}
+
     </header>
   );
 }
-
-
-
